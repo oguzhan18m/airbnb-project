@@ -1,0 +1,28 @@
+.superhosts {
+   margin-top: 20px;
+}
+
+.superhosts .superhost {
+   margin-bottom: 30px;
+}
+
+.superhosts .superhost a {
+   color: #000;
+}
+
+.superhosts .superhost img {
+   max-width: 100%;
+   border-radius: 8px;
+}
+
+.superhosts .superhost .location {
+   color: rgb(113, 113, 113) !important;
+}
+
+.superhosts .material-icons {
+   color: #f00;
+}
+
+.superhosts .price-per-night {
+   font-weight: bolder;
+}

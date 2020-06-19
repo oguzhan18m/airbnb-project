@@ -1,0 +1,20 @@
+.activities {
+   margin-top: 20px;
+}
+
+.activities .activity a {
+   color: #000;
+}
+
+.activities .activity img {
+   max-width: 100%;
+   border-radius: 8px;
+}
+.activities .activity .material-icons {
+   color: #f00;
+   font-size: 15px;
+}
+
+.activities .main-header-text {
+   text-align: left;
+}

@@ -1,0 +1,120 @@
+.host-fluid .host {
+   border-radius: 4px;
+   margin-top: 50px;
+}
+
+.hosting-header-text {
+   font-size: 50px !important;
+   line-height: 36px !important;
+   letter-spacing: normal !important;
+   color: #484848 !important;
+   padding-top: 10px !important;
+   padding-bottom: 6px !important;
+   margin: 0px !important;
+   margin-bottom: 20px !important;
+   padding: 0px !important;
+   font-weight: bold;
+}
+.hosting .material-icons {
+   font-size: 60px;
+   margin-left: 150px;
+   margin-bottom: 50px;
+   color: rgb(218, 134, 218);
+}
+.host .material-icons {
+   font-size: 60px;
+   color: rgb(30, 97, 59);
+   margin-bottom: 30px;
+}
+
+.quote .material-icons {
+   font-size: 60px;
+   color: orange;
+}
+
+.host-fluid .divider {
+   margin: 70px 20px;
+   color: lightcoral;
+}
+.quote-img {
+   width: 70%;
+   margin-left: 100px;
+   margin-top: 100px;
+}
+
+.covered .material-icons {
+   font-size: 23px;
+   color: rgb(36, 148, 36);
+}
+
+.covered {
+   font-size: 17px;
+   font-stretch: narrower;
+}
+.covered ul {
+   margin-left: 100px;
+}
+.covered-img {
+   width: 80%;
+   position: center;
+}
+
+.worldwide .worldwide-text {
+   font-size: 60px;
+   font-weight: 200;
+   color: #484848 !important;
+   text-align: center;
+}
+
+.worldwide p {
+   font-size: 20px;
+   font-weight: 400;
+   color: #484848 !important;
+   text-align: center;
+}
+
+.earn-container-fluid {
+   position: relative;
+   width: 100%;
+   text-align: center;
+}
+
+.earn-container-fluid img {
+   width: 100%;
+   height: auto;
+   margin-top: 100px;
+   z-index: -1;
+}
+.earn-container-fluid .btn {
+   z-index: 0;
+   position: absolute;
+   top: 85%;
+   left: 76%;
+   width: 250px;
+   height: 50px;
+   margin: 0 auto;
+   padding: 0;
+   line-height: 50px;
+   text-align: center;
+   transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   align-items: center;
+   display: inline-block;
+   color: black;
+   font-weight: 700;
+   font-size: 15px;
+   border: none;
+   cursor: pointer;
+   border-radius: 5px;
+}
+
+.earn-container-fluid h3 {
+   z-index: 1;
+   position: absolute;
+   top: 79%;
+   left: 70%;
+   transform: translate(-20%, -5%);
+   font-weight: 700;
+   font-size: 40px;
+   color: rgb(50, 58, 65);
+}
