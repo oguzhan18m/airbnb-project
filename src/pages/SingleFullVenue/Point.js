@@ -1,13 +1,13 @@
 import React from "react";
 
 export default function Point(props) {
-   console.log(props);
+   // console.log(props);
 
    const descObj = props.pointDesc.find(
       (point) => point.pointTitle === props.point
    );
 
-   console.log(descObj);
+   // console.log(descObj);
    return (
       <div>
          <div className="point-title">{props.point}</div>

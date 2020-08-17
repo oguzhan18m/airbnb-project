@@ -4,54 +4,76 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import openModal from "../../actions/openModal";
+import logoutAction from "../../actions/logoutAction";
 import Login from "../../pages/LogIn/Login";
-import SingUp from "../../pages/LogIn/SingUp";
-import logo from "../../airbnb_logo.png";
+import SignUp from "../../pages/LogIn/SingUp";
 
-class Navbar extends Component {
+class NavBar extends Component {
+   componentDidUpdate(oldProps) {
+      if (oldProps.auth.token !== this.props.auth.token) {
+         this.props.openModal("closed", "");
+      }
+   }
+
    render() {
-      let navColor = "transparent";
+      let navColor = "black";
       if (this.props.location.pathname !== "/") {
+         // then user is not on the home page!
          navColor = "black";
       }
+
       return (
          <div className="container-fluid nav">
             <div className="row">
                <nav className={navColor}>
                   <div className="nav-wrapper">
-                     <Link to="/" className="left">
-                        <img src={logo} alt="logo" className="airbnb-logo" />
+                     <Link to="/" className="left airbnb-logo">
+                        Airbnb
                      </Link>
                      <ul id="nav-mobile" className="right">
                         <li>
-                           <Link to="/">English(US)</Link>{" "}
+                           <Link to="/">English (US)</Link>
                         </li>
                         <li>
-                           <Link to="/">$ USD</Link>{" "}
+                           <Link to="/">$ USD</Link>
                         </li>
                         <li>
-                           <Link to="/become-a-host">Become a Host</Link>{" "}
+                           <Link to="/become-a-host">Become a host</Link>
                         </li>
                         <li>
-                           <Link to="/">Help</Link>{" "}
+                           <Link to="/">Help</Link>
                         </li>
-                        <li
-                           className="login-signup"
-                           onClick={() => {
-                              this.props.openModal("open", <SingUp />);
-                           }}
-                        >
-                           Sign Up{" "}
-                        </li>
-                        <li
-                           className="login-signup"
-                           onClick={() => {
-                              this.props.openModal("open", <Login />);
-                           }}
-                        >
-                           {" "}
-                           Login
-                        </li>
+                        {this.props.auth.email ? (
+                           <>
+                              <li>
+                                 <Link to="/account">
+                                    Hello, {this.props.auth.email}
+                                 </Link>
+                              </li>
+                              <li onClick={() => this.props.logoutAction()}>
+                                 Logout
+                              </li>
+                           </>
+                        ) : (
+                           <>
+                              <li
+                                 className="login-signup"
+                                 onClick={() => {
+                                    this.props.openModal("open", <SignUp />);
+                                 }}
+                              >
+                                 Sign Up
+                              </li>
+                              <li
+                                 className="login-signup"
+                                 onClick={() => {
+                                    this.props.openModal("open", <Login />);
+                                 }}
+                              >
+                                 Log in
+                              </li>
+                           </>
+                        )}
                      </ul>
                   </div>
                </nav>
@@ -61,13 +83,20 @@ class Navbar extends Component {
    }
 }
 
+function mapStateToProps(state) {
+   return {
+      auth: state.auth,
+   };
+}
+
 function mapDispatchToProps(dispatcher) {
    return bindActionCreators(
       {
          openModal: openModal,
+         logoutAction: logoutAction,
       },
       dispatcher
    );
 }
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

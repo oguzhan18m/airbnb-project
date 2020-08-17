@@ -14,7 +14,7 @@ export default class Venues extends Component {
          );
       });
       return (
-         <div className="venues">
+         <div className="row venues">
             <h1 className="main-header-text">{this.props.header}</h1>
             {venues}
          </div>

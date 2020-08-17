@@ -1,12 +1,22 @@
 .nav {
-   position: absolute;
+   position: fixed;
    width: 100%;
    top: 0;
    left: 0;
+   z-index: 200;
+}
+
+#nav-mobile {
+   margin-right: 20px;
+   padding-right: 15px;
 }
 
 .nav nav {
    box-shadow: none;
+}
+
+.login-signup {
+   margin-right: 20px;
 }
 
 .nav ul li {
@@ -14,12 +24,8 @@
    cursor: pointer;
 }
 
-.nav ul li.login-signup {
-   margin-right: 15px;
-}
-
 .nav .nav-non-link {
-   padding: 0 15px;
+   padding: 0 0px;
 }
 
 .nav-non-link:hover {
@@ -32,8 +38,7 @@
    background-color: initial;
 }
 .airbnb-logo {
-   width: 16%;
-   padding-left: 40px;
-   padding-top: 15px;
-   padding-bottom: 15px;
+   font-size: 40px;
+   margin-left: 20px;
+   margin-top: 0px;
 }

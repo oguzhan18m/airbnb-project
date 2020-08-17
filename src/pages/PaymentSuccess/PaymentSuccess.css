@@ -1,0 +1,96 @@
+img {
+   max-width: 100%;
+}
+
+.reservation-success {
+   margin-top: 75px;
+}
+
+.start-packing {
+   font-size: 50px !important;
+   color: #f37171 !important;
+   margin-top: 50px !important;
+   margin-bottom: 20px !important;
+   font-weight: bold;
+}
+
+.confirmed {
+   font-size: 35px;
+   font-weight: bold;
+}
+.confirmed .green-confirmed {
+   color: green;
+}
+.confirmed svg {
+   margin-right: 10px;
+}
+
+.confirmed .header-text {
+   font-size: 16px;
+   font-weight: normal;
+}
+
+.confirmed-detail .bordered {
+   border: 1px solid;
+}
+
+.confirmed-detail .upper {
+   margin-top: 40px;
+}
+.confirmed-detail .lower {
+   margin-bottom: 40px;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.details {
+   margin-bottom: 40px;
+}
+
+.charges.row {
+   margin-left: 15px;
+}
+
+.charges-text {
+   font-weight: bold;
+   font-size: 24px;
+}
+
+.row.col.total {
+   padding: 30px;
+   background-color: #ecefec;
+}
+
+.title-text {
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.resv-image {
+   padding: 50px;
+   margin-bottom: 20px;
+}
+
+.span-bolder {
+   font-weight: bolder;
+   color: #ed0000;
+}
+
+.span-booked {
+   font-weight: bolder;
+   color: black;
+   text-decoration: underline;
+}
+
+.reservation-success .divider {
+   width: 30%;
+   margin-bottom: 50px;
+   margin-left: 33rem;
+}
+
+.check {
+   font-size: 30px;
+   font-weight: 500;
+   margin-right: 20px;
+   color: green;
+}

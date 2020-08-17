@@ -85,3 +85,7 @@
    font-size: 16px;
    padding: 5px;
 }
+.login-signup {
+   font-weight: 800;
+   cursor: pointer;
+}

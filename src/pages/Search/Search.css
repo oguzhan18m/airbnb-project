@@ -1,0 +1,27 @@
+.lower-fold {
+   padding-left: 80px;
+   padding-right: 80px;
+}
+
+.search-results-header-text {
+   margin-top: 100px;
+   color: #f06666 !important;
+   font-weight: 600;
+}
+
+.lower-fold .divider {
+   width: 30%;
+   margin-bottom: 50px;
+   margin-left: 0rem;
+}
+
+.nothing-mathced {
+   margin-top: 30px;
+   margin-bottom: 30px;
+   color: red !important;
+   font-weight: 300;
+}
+
+.search-matched {
+   margin-bottom: 30px;
+}

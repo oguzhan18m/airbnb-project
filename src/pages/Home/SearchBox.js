@@ -6,8 +6,14 @@ export default class SearchBox extends Component {
       where: "",
       checkIn: "",
       checkOut: "",
-      guests: 0,
+      guests: 1,
    };
+
+   submitSearch = (e) => {
+      e.preventDefault();
+      this.props.history.push(`/search/${this.state.where}`);
+   };
+
    changeWhere = (e) => {
       this.setState({
          where: e.target.value,
@@ -33,7 +39,7 @@ export default class SearchBox extends Component {
          <div className="home-search-box col m4">
             <h1>Book unique places to stay and things to do.</h1>
 
-            <form className="search-box-form">
+            <form onSubmit={this.submitSearch} className="search-box-form">
                <div className="col m12">
                   <div className="form-label">where</div>
                   <div className="input-field" id="where">

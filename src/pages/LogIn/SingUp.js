@@ -3,7 +3,10 @@ import "./Login.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import openModal from "../../actions/openModal";
+import regAction from "../../actions/regAction";
 import Login from "./Login";
+import axios from "axios";
+import swal from "sweetalert";
 
 class SingUp extends Component {
    constructor() {
@@ -20,6 +23,7 @@ class SingUp extends Component {
          ),
          email: "",
          password: "",
+         name: "",
       };
    }
 
@@ -33,6 +37,11 @@ class SingUp extends Component {
          password: e.target.value,
       });
    };
+   changeName = (e) => {
+      this.setState({
+         name: e.target.value,
+      });
+   };
 
    showInputs = () => {
       this.setState({
@@ -40,17 +49,55 @@ class SingUp extends Component {
             <SignUpInputFields
                changeEmail={this.changeEmail}
                changePassword={this.changePassword}
+               changeName={this.changeName}
             />
          ),
       });
    };
 
-   submitLogin = (e) => {
+   submitLogin = async (e) => {
       e.preventDefault();
-      console.log(this.state.email);
-      console.log(this.state.password);
+      const url = `${window.apiHost}/users/signup`;
+      const data = {
+         email: this.state.email,
+         password: this.state.password,
+         name: this.state.name,
+      };
+
+      const resp = await axios.post(url, data);
+      const token = resp.data.token;
+
+      // const url2 = `${window.apiHost}/users/token-check`;
+      // const resp2 = await axios.post(url2, { token });
+      // console.log(resp2);
+
+      if (resp.data.msg === "userExists") {
+         swal({
+            title: "E-mail already exists...",
+            text:
+               "This e-mail is already registered. Please try another e-mail address.",
+            icon: "error",
+         });
+      } else if (resp.data.msg === "invalidData") {
+         swal({
+            title: "Invalid e-mail or password!",
+            text: "Please provide a valid e-mail or password!",
+            icon: "error",
+         });
+      } else if (resp.data.msg === "userAdded") {
+         swal({
+            title: "Success!",
+            text: "You signed up successfully!",
+            icon: "success",
+         });
+
+         //we call our register action to update our auth reducer!
+         this.props.regAction(resp.data);
+      }
    };
+
    render() {
+      console.log(this.props.auth);
       return (
          <div className="login-form">
             <h5 className="login-header">Sign Up</h5>
@@ -79,16 +126,24 @@ class SingUp extends Component {
       );
    }
 }
+
+function mapStateToProps(state) {
+   return {
+      auth: state.auth,
+   };
+}
+
 function mapDispatchToProps(dispatcher) {
    return bindActionCreators(
       {
          openModal: openModal,
+         regAction: regAction,
       },
       dispatcher
    );
 }
 
-export default connect(null, mapDispatchToProps)(SingUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SingUp);
 
 const SignUpInputFields = (props) => {
    return (
@@ -113,6 +168,17 @@ const SignUpInputFields = (props) => {
                   type="password"
                   placeholder="Password"
                   onChange={props.changePassword}
+               />
+            </div>
+         </div>
+         <div className="col s6">
+            <div id="name" className="input-field">
+               <div className="form-label">Name</div>
+               <input
+                  className="browser-default"
+                  type="input"
+                  placeholder="Name"
+                  onChange={props.changeName}
                />
             </div>
          </div>

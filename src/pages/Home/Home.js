@@ -66,13 +66,15 @@ export default class Home extends Component {
          return <Spinner />;
       }
 
+      console.log(this.props);
+
       return (
          <>
             <div className="container-fluid">
                <div className="row">
                   <div className="home col s12">
                      <div className="upper-fold">
-                        <SearchBox />
+                        <SearchBox history={this.props.history} />
                      </div>
                   </div>
                </div>
